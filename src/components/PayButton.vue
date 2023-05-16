@@ -2,7 +2,7 @@
 import axios from 'axios';
 import braintree from 'braintree-web';
 export default {
-    data() {
+/*     data() {
         return {
             hostedFieldInstance: false,
             nonce: ""
@@ -62,11 +62,11 @@ export default {
        .catch(err => {
        });
    }
-}
+} */
 </script>
 
 <template>
-    <form>
+<!--     <form>
         <div class="form-group">
             <label>Credit Card Number</label>
             <div id="creditCardNumber" class="form-control"></div>
@@ -87,5 +87,5 @@ export default {
            paga
         </button>
      </form>
-     
+      -->
 </template>
