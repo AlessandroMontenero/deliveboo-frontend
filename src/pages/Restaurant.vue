@@ -1,35 +1,45 @@
+<!-- Pagina del singolo Ristorante, dove vedi e puoi aggiungere al carrello i suoi piatti -->
+
 <script>
+
+/* Importo il Jumbotron del ristorante e il container dei piatti */
+import Jumbotron from '../components/restaurants/detail-page/RestaurantDetailJumbotron.vue'
+import DishesList from '../components/restaurants/detail-page/dishes/DishesList.vue'
 import axios from 'axios'
-import { useCartStore } from "../stores/cart"
 
 export default{
-    name:'Homepage',
+    components:{
+        /* Importo i componenti */
+        Jumbotron,
+        DishesList
+    },
     data(){
-      return {
-        store: useCartStore(), //initialize the store
-        restaurant: [],
-        link: ''
-      }
+        return{
+            restaurant: []
+        }
     },
     created(){
-        console.log(this.store.dishes)
-
         axios.get('http://127.0.0.1:8000/api/restaurants/' + this.$route.params.id)
         .then((response)=> this.restaurant = response.data)
-    },
-    methods: {
     }
 }
-
 </script>
+
 <template>
-    {{ restaurant.name }} <br>
-    {{ restaurant.address }} <br>
-    {{ restaurant.phone_number }} <br>
-    <img :src="restaurant.image" alt="">
-    <div v-for="dish in restaurant.dishes">
-        {{ dish.name }}
-        {{ dish.price }}
-        <span @click="store.addDish(dish)">Aggiungi al carrello</span>
+
+    <!-- Jumbotron ristorante -->
+    <Jumbotron :restaurant="restaurant" />
+
+    <!-- Container di Bootstrap per margini laterali -->
+    <div class="container">
+        <!-- Container Piatti -->
+        <DishesList :dishes="restaurant.dishes" />
     </div>
+    
+    
+
 </template>
+
+<style>
+
+</style>
