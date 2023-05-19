@@ -69,5 +69,4 @@ export default{
         border-color: var(--bg-secondary-color);
     }
 }
-
 </style>
