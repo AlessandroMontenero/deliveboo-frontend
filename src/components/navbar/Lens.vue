@@ -3,6 +3,7 @@
 <script>
 /* Importo il componente Search */
 import Search from '../SearchComponent.vue'
+import axios from 'axios'
 export default{
     watch: {
     $route(newVal, oldVal) {
@@ -12,7 +13,8 @@ export default{
     data(){
         return{
             /* Variabile per aprire o chiudere il componente Search */
-            expanded: 0
+            expanded: 0,
+            restaurants: [], 
         }
     },
     components: {
@@ -22,24 +24,14 @@ export default{
     /* creazione di due chiamate axios distinte per ristoranti e piatti */
 
     methods: {
-    fetchSomething(query) {
-      this.fetchRestaurants(query);
-      this.fetchDishes(query);
-    },
     fetchRestaurants(query) {
+      console.log(query)
       axios
-        .get()
+        .get('http://127.0.0.1:8000/api/search/' + query)
         .then((RestaurantResponse) => {
-          ;
+          this.restaurants = RestaurantResponse.data
         });
-    },
-    fetchDishes(query) {
-      axios
-        .get()
-        .then((DishesResponse) => {
-      });
-      console.log(Response);
-    },
+    }
   },
 }
 
@@ -58,8 +50,8 @@ export default{
     <!-- Componente Search -->
 
     <div v-if="expanded">
-        <Search @search="fetchSomething" v-show="expanded" 
-        @close="expanded = 0"/>
+        <Search @search="fetchRestaurants" v-show="expanded" 
+        @close="expanded = 0" :restaurants="restaurants"/>
         
         <router-view v-if="!expanded"></router-view>
     </div>

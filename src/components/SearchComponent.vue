@@ -13,6 +13,9 @@
     };
   },
   emits: ["search"],
+  props: {
+    restaurants: Array
+  },
   methods: {
     resetSearch(search_something) {},
   },
@@ -59,11 +62,17 @@
           >
             Reset
           </button> -->
+          <div class="d-flex flex-column">
+            <span v-for="restaurant in restaurants">
+              {{ restaurant.name }}
+            </span>
+          </div>
         </div>
         
         <!-- Scurisce la porzione di schermo non coperta dalla schermata 'ricerca'
         e quando cliccato chiude la schermata, emittando al componente 'Lens.vue' -->
         <div class="search-backdrop" @click="$emit('close')"></div>
+        
 
     </div>
 </template>
