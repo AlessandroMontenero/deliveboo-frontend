@@ -18,8 +18,7 @@ export default {
 
 <template>
     <!-- Header -->
-    <header class="header-bar p-2">
-
+    <header>
         <div class="row justify-content-between align-items-center">
             <!-- SX -->
             <div class="col-5 col-md-4 col-lg-2 logo">
@@ -54,16 +53,12 @@ export default {
 
 
 <style lang="scss" scoped>
-.header {
-    position: fixed;
-    z-index: 10;
+header {
     height: var(--navbar-height);
-
-}
-
-.header-bar {
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
     background-color: var(--bg-primary-color);
-
+    margin: var(--header-spacing-desktop) var(--header-spacing-desktop) 0 var(--header-spacing-desktop);
+    
     #btn-color:hover {
         background-color: var(--bg-secondary-color);
         border-color: var(--bg-secondary-color);

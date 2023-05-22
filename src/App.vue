@@ -70,6 +70,12 @@ export default{
 
     //Altezza/Larghezza componente Carrello desktop
     --cartComponent-desktop-height: 10vh;
+
+    //Margine Header Desktop
+    --header-spacing-desktop: 2rem;
+
+    //Border radius
+    --border-radius: 10px;
 }
 
 #app{

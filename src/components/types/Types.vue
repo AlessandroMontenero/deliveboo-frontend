@@ -36,6 +36,8 @@ export default {
 
 <style>
 .types-container{
+    margin: 0 var(--header-spacing-desktop) var(--header-spacing-desktop) var(--header-spacing-desktop);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
     display: flex;
     padding: 8px 0;
     gap: 1rem;

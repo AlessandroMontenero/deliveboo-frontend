@@ -90,6 +90,7 @@ export default{
   
 }
 .jumbotron{
+    margin: 0 var(--header-spacing-desktop) 0 var(--header-spacing-desktop);
     color: white;
     overflow: hidden;
     background-color: var(--bg-primary-color);
