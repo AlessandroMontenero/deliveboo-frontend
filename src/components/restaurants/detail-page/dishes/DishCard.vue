@@ -35,7 +35,7 @@ export default {
     <!-- TODO: immagine, nome piatto, descrizione, prezzo -->    
         
     <div class="col-12 col-lg-6" @click="isOpen = 1">
-        
+        <div class="card-group">
             <div class="card">
                 <div class="row">
                     <div class="col-4 image-container">
@@ -43,15 +43,19 @@ export default {
                     </div>
                 
                     <div class="col-8">
-                        
-                        <h5 class="card-title mt-md-1 fs-lg-4">{{ dish.name }}</h5>
-                        <span class="card-title mt-md-1 text-secondary fs-lg-5">{{ dish.description }}</span>
-                        <p class="card-title mt-md-1 fs-lg-5">&euro; {{ dish.price }}</p> 
+                        <div class="title-price d-flex justify-content-between">
+                            <h5 class="card-title mt-md-1 fs-lg-4">{{ dish.name }}</h5>
+                            <p class="card-title mt-md-1 fs-lg-5 fw-bold me-3">&euro; {{ dish.price }}</p> 
+                        </div>
+
+                        <span class="card-title mt-md-1 text-secondary fs-lg-6">{{ dish.description }}</span>
                         
                     </div>
                         
                 </div>
             </div>
+        </div>
+
         
     </div>
 
