@@ -1,16 +1,31 @@
 <!-- Componente per scegliere la quantità del piatto da aggiungere al carrello -->
 <script>
 import {useCartStore} from '../../../../stores/cart'
+import Modals from '../../../../pages/Modals.vue'
 export default {
+    components: {
+      Modals,
+    },
     props: {
         dish: Object
     },
     data(){
         return{
             cart: useCartStore(),
-            quantity: 1
+            quantity: 1,
+            isModalVisible: false,
         }
     },
+    methods:{
+        showModal() {
+        this.isModalVisible = true;
+      },
+      closeModal() {
+        this.isModalVisible = false;
+    },
+},
+
+  
     created(){
         this.cart.dishes.forEach((cartDish)=>{
             if (cartDish.id == this.dish.id)
@@ -29,9 +44,9 @@ export default {
 
         <!-- Scurisce la porzione non coperta dalla schermata e al click chiude la schermata -->
         <div class="backdrop" @click="$emit('close')">
-
+            
         </div>
-
+        
         <!-- Schermata -->
         <div class="quantity">
             <div class="name">
@@ -49,8 +64,30 @@ export default {
                         <div class="button" @click="quantity++">+</div>
                     </div>
                 </div>
-                <div class="addToCart" @click="cart.addToCart(dish, quantity), $emit('close')">Aggiungi al carrello</div>
+                
+                <div v-if="cart.dish.restaurant_id != cart.dishes[0].restaurant_id" class="no-matches-conditions">
+                    <button type="button" class="addToCart" @click="showModal(), $emit('close')">Aggiungi al carrello</button>
+                </div>
+                
+                <div v-else class="matches-conditions">
+                    <button type="button" class="addToCart" @click="cart.addToCart(dish, quantity), $emit('close')">Aggiungi al carrello</button>
+                </div>
             </div>
+
+            <Modals v-show="isModalVisible"
+                    @close="closeModal">
+
+                    <template v-slot:header>
+                    This is a new modal header.
+                    </template>
+                    <template v-slot:body>
+                    This is a new modal body.
+                    </template>
+                    <template v-slot:footer>
+                    This is a new modal footer.
+                    </template>
+
+            </Modals>    
 
         </div>
     </div>
