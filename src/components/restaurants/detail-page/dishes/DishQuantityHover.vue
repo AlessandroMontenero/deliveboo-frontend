@@ -64,6 +64,10 @@ export default {
                         <div class="button" @click="quantity++">+</div>
                     </div>
                 </div>
+
+                <!-- il problema sostanziale e' capire come trasferire la logica presente in cart.js su questo pulsante -->
+
+                <!-- tentativo di condizione per differenziare le azioni al click di un medesimo pulsante,purtroppo non funziona -->
                 
                 <div v-if="cart.dish.restaurant_id != cart.dishes[0].restaurant_id" class="no-matches-conditions">
                     <button type="button" class="addToCart" @click="showModal(), $emit('close')">Aggiungi al carrello</button>
@@ -73,7 +77,7 @@ export default {
                     <button type="button" class="addToCart" @click="cart.addToCart(dish, quantity), $emit('close')">Aggiungi al carrello</button>
                 </div>
             </div>
-
+            <!-- componente modals! -->
             <Modals v-show="isModalVisible"
                     @close="closeModal">
 

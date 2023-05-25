@@ -13,6 +13,9 @@ export const useCartStore = defineStore("cart", {
     {
       if(this.numberOfItems != 0){
       if(dish.restaurant_id != this.dishes[0].restaurant_id){
+        
+        // questo ad ora e' l'unica cosa funzionante
+
           if (confirm("Questo piatto appartiene a un ristorante diverso dagli altri nel tuo carrello. Vuoi eliminare il carrello e crearne uno nuovo?")) {
             this.deleteCart();
             dish['quantity'] = quantity
