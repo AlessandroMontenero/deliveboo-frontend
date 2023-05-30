@@ -17,7 +17,7 @@ export default {
 <template>
     <!-- Footer -->
 
-    <footer class="header-bar p-2">
+    <footer class="p-2">
         <div class="d-flex justify-content-between align-items-center w-100 mx-2">
             <!-- SX -->
             <div class="logo">
@@ -50,17 +50,7 @@ footer {
     display: flex;
     align-items: center;
     font-size: smaller;
-}
-
-.header-bar {
-    button{
-        background-color: var(--bg-primary-color);
-        white-space: nowrap;
-    }
-    #btn-color:hover {
-        background-color: var(--bg-secondary-color);
-        border-color: var(--bg-secondary-color);
-    }
+    margin-top: 3rem;
 }
 
 img{

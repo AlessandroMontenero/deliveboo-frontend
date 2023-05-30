@@ -166,7 +166,7 @@ export default{
                     
                     
                     
-                    <div class="row">
+                    <div class="row space">
                         <div class="col-12 d-flex flex-column color m-2">
                             <label for="">Informazioni utente</label>
                             </div>

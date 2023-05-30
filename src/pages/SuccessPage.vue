@@ -35,7 +35,7 @@ export default {
 <style lang="scss" scoped>
 
 .vh{
-    height: 100vh;
+    height: calc(100vh - 8.5rem);
     display: flex;
     align-items: center;
     flex-direction: column;
