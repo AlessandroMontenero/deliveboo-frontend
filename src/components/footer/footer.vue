@@ -44,7 +44,7 @@ export default {
 
 <style lang="scss" scoped>
 footer {
-    z-index: 10;
+    // z-index: 10;
     height: var(--footer-height);
     background-color: var(--bg-primary-color);
     display: flex;

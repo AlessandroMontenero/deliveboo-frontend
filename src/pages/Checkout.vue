@@ -131,7 +131,7 @@ export default{
 }
 </script>
 <template>
-    <div class="checkout h-100">
+    <div class="checkout">
         <div class="container">
             <div class="row justify-content-between">
                 <div class="dishes column col-12 col-lg-6 d-md-flex flex-md-column justify-content-start gap-md-2 mb-2">
@@ -244,12 +244,14 @@ export default{
             </div>
         </div>
     </template>
+
+
     <style lang="scss" scoped>
 .column{
     @media screen and (min-width: 968px) {
-        height: 80vh;
+        // height: 80vh;
         &.dishes{
-            height: 80vh;
+            // height: 80vh;
         }
     }
 }
@@ -269,7 +271,7 @@ label{
 .checkout{
     padding: 1rem;
     padding-top: calc(var(--navbar-height) + 1rem);
-    max-height: 100vh;
+    // max-height: 100vh;
     box-sizing: border-box;
     .dishes{
         background-color: #ffc032;
